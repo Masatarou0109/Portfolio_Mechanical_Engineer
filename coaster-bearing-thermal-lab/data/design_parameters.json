@@ -1,0 +1,14 @@
+{
+  "vehicle_mass_kg": 1200.0,
+  "passenger_mass_kg": 800.0,
+  "number_of_wheels": 8,
+  "wheel_radius_m": 0.15,
+  "bearing_effective_radius_m": 0.025,
+  "bearing_equivalent_friction_coefficient": 0.0015,
+  "ambient_temperature_C": 25.0,
+  "initial_bearing_temperature_C": 25.0,
+  "thermal_capacity_J_per_K": 2500.0,
+  "heat_dissipation_W_per_K": 8.0,
+  "simulation_time_s": 300.0,
+  "time_step_s": 0.1
+}

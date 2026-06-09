@@ -1,0 +1,29 @@
+MSC NASTRAN F06 DEMO RESULT
+
+                              D I S P L A C E M E N T   V E C T O R
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      1.000000E-01   0.000000E+00   0.000000E+00   0.0            0.0            0.0
+             2      G      1.500000E-01   0.000000E+00   0.000000E+00   0.0            0.0            0.0
+             3      G      1.700000E-01   0.000000E+00   0.000000E+00   0.0            0.0            0.0
+             4      G      1.200000E-01   0.000000E+00   0.000000E+00   0.0            0.0            0.0
+             5      G      2.000000E-01   0.000000E+00   0.000000E+00   0.0            0.0            0.0
+             6      G      2.200000E-01   0.000000E+00   0.000000E+00   0.0            0.0            0.0
+
+                              GRID POINT TEMPERATURES
+      GRID ID.        TEMPERATURE
+             1        1.100000E+02
+             2        1.180000E+02
+             3        1.230000E+02
+             4        1.160000E+02
+             5        1.240000E+02
+             6        1.210000E+02
+
+                              ELEMENT VON_MISES STRESS
+      ELEMENT ID.     VON_MISES
+           101        1.950000E+02
+           102        2.080000E+02
+
+                              ELEMENT HEAT_FLUX
+      ELEMENT ID.     HEAT_FLUX
+           101        2.100000E-02
+           102        2.500000E-02

@@ -1,0 +1,12 @@
+{
+  "temperature_limit_c": 118.0,
+  "temperature_warning_c": 110.0,
+  "stress_allowable_mpa": 200.0,
+  "stress_yield_mpa": 320.0,
+  "displacement_limit_mm": 0.235,
+  "max_exceeded_area_percent_ok": 1.0,
+  "max_exceeded_area_percent_warning": 5.0,
+  "minimum_safety_factor": 1.5,
+  "minimum_heat_flow_conservation_percent": 99.0,
+  "notes": "Example design criteria for synthetic CAE results. Replace these values with project-specific engineering limits."
+}
