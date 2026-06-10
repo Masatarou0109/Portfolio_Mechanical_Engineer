@@ -24,6 +24,12 @@ The goal is to show practical Python automation for thermal engineering, not onl
 
 ---
 
+## Resume
+
+[Download Resume (PDF)](resume/Masatake_Kadono_Resume.pdf)
+
+---
+
 ## Projects
 
 | Project | Preview | Role in the workflow |

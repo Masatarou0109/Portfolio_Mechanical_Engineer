@@ -12,7 +12,7 @@ if ! git remote get-url origin >/dev/null 2>&1; then
   exit 1
 fi
 
-git add .gitignore README.md automated-cae-design-review-tool coaster-bearing-thermal-lab
+git add .gitignore README.md resume automated-cae-design-review-tool coaster-bearing-thermal-lab thermal-resistance-network-optimizer
 
 if git diff --cached --quiet; then
   echo "No portfolio project changes to commit."
