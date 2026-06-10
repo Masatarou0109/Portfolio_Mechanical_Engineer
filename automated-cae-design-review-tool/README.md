@@ -4,7 +4,9 @@ Automated post-processing and design judgement reporting for Nastran analysis re
 
 This Python tool imports Nastran analysis results, converts them into engineering review metrics, and automatically generates comparison tables, design judgements, reports, and plots.
 
-![Case comparison temperature](docs/assets/case_comparison_temperature.png)
+[![Maximum temperature comparison by case](docs/assets/case_comparison_temperature.png)](docs/assets/case_comparison_temperature.png)
+
+Click the figures in this README to open them at full resolution.
 
 ---
 
@@ -32,17 +34,21 @@ This tool is designed to convert Nastran results into decision-ready engineering
 
 ## Result Examples
 
-### Baseline Temperature Map
+The most important outputs are the case comparison plots. They make it easy to see which design case improves thermal or structural performance.
 
-![Baseline temperature map](docs/assets/baseline_temperature_map.png)
+### Maximum Temperature by Case
 
-### Recommended Case Temperature Map
+[![Maximum temperature comparison by case](docs/assets/case_comparison_temperature.png)](docs/assets/case_comparison_temperature.png)
 
-![Recommended case temperature map](docs/assets/recommended_case_temperature_map.png)
+This chart compares the maximum temperature of each analysis case. Lower values indicate better thermal performance.
 
-### Stress Comparison
+### Maximum von Mises Stress by Case
 
-![Case comparison stress](docs/assets/case_comparison_stress.png)
+[![Maximum stress comparison by case](docs/assets/case_comparison_stress.png)](docs/assets/case_comparison_stress.png)
+
+This chart compares the maximum von Mises stress of each design case. It helps identify cases that may approach or exceed the allowable stress limit.
+
+Temperature map images are also generated in `outputs/`, but they are mainly useful when the model has enough elements to show a spatial distribution. The small Nastran demo model has only a few shell elements, so the case comparison plots are easier to read in the README.
 
 ---
 
