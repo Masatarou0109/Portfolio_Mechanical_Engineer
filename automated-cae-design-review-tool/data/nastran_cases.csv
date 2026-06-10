@@ -1,3 +1,0 @@
-case_id,case_description,bdf_path,result_path
-case_01_baseline,Nastran baseline demo,nastran_demo/demo_model.bdf,nastran_demo/case_01_baseline.f06
-case_02_nastran_update,Nastran improved demo,nastran_demo/demo_model.bdf,nastran_demo/case_02_nastran_update.f06

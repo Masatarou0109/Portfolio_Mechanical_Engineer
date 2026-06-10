@@ -7,3 +7,7 @@ __pycache__/
 .matplotlib/
 
 */outputs/
+
+*.docx
+*メモ*.txt
+automated-cae-design-review-tool/data/nastran_cases.csv

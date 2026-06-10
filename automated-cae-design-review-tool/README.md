@@ -124,6 +124,8 @@ The sample CSV data and Nastran demo data are synthetic and do not contain confi
 Install dependencies:
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -138,6 +140,12 @@ Run the Nastran demo:
 ```bash
 cp data/nastran_cases.example.csv data/nastran_cases.csv
 python src/run_review.py
+```
+
+Run tests:
+
+```bash
+python -m unittest discover -s tests
 ```
 
 ---

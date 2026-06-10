@@ -99,6 +99,8 @@ docs/                             Portfolio notes
 Install dependencies:
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -124,6 +126,12 @@ If Matplotlib reports a config/cache warning, run with:
 
 ```bash
 MPLCONFIGDIR=.matplotlib python3 src/optimization_ga.py
+```
+
+Run tests:
+
+```bash
+python -m unittest discover -s tests
 ```
 
 ---
