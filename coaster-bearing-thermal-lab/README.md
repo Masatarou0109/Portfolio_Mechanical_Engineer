@@ -1,29 +1,33 @@
 # Coaster Bearing Thermal Lab
 
-架空ジェットコースター車両の車輪軸受を対象に、走行速度、車輪回転数、摩擦発熱、温度上昇、熱リスク低減策を評価する Python プロジェクトです。
+This Python project evaluates bearing heat generation and temperature rise for a fictional roller coaster wheel assembly. It models vehicle speed, wheel rotational speed, bearing friction, heat generation, thermal response, mitigation scenarios, and genetic-algorithm-based design optimization.
 
-このプロジェクトの目的は、連続運転時に軸受温度がどの程度上昇するかを簡易熱モデルで予測し、対策案比較と GA による設計探索を行うことです。
+> Note: This is a fictional, public-safe engineering model for portfolio use. It is not a certified roller coaster design tool.
 
-> Note: This is a fictional, public-safe model for portfolio use. It is not a certified roller coaster design tool.
+---
+
+## Overview
+
+Roller coaster wheel bearings generate heat through rotational friction during operation. If temperature rise accumulates during repeated runs, it can affect lubrication performance, bearing life, internal clearance, and reliability.
+
+This project answers three simplified engineering questions:
+
+- How much does bearing temperature rise under baseline operating conditions?
+- How effective are mitigation measures such as lower friction, better cooling, reduced load, or reduced speed?
+- Which design combination provides a good balance between thermal performance, cost, and constraints?
+
+---
 
 ## Project Highlights
 
-- 架空速度プロファイルから車輪回転数を計算
-- 軸受荷重、摩擦トルク、摩擦発熱を計算
-- 集中熱容量モデルで軸受温度応答を予測
-- 摩擦低減、放熱改善、荷重低減、速度低減の対策案を比較
-- GA により、軸受タイプ、潤滑剤、車輪材質、車輪半径、冷却風量、運転間隔を探索
-- 結果を PNG グラフと CSV で出力
+- Calculates wheel rotational speed from a fictional coaster speed profile.
+- Estimates wheel load, bearing friction torque, and frictional heat generation.
+- Predicts bearing temperature response using a lumped thermal capacitance model.
+- Compares fixed mitigation scenarios.
+- Runs a catalog-based genetic algorithm to explore bearing type, lubricant, wheel material, wheel radius, cooling airflow, and operating interval.
+- Outputs CSV result tables and PNG figures.
 
-## Engineering Problem
-
-ローラーコースター車輪軸受は、走行中の回転摩擦によって発熱します。連続運転で温度上昇が蓄積すると、潤滑性能、軸受寿命、内部すきま、信頼性に影響する可能性があります。
-
-本プロジェクトでは、次の問いを簡易モデルで扱います。
-
-- 標準条件で軸受温度はどの程度上昇するか
-- 摩擦低減や放熱改善はどの程度効くか
-- コストや制約を考慮した場合、どの設計案がバランス良いか
+---
 
 ## Model Flow
 
@@ -35,7 +39,10 @@ speed profile
 → frictional heat generation
 → bearing temperature response
 → mitigation comparison / GA optimization
+→ visualization and reporting
 ```
+
+---
 
 ## Governing Equations
 
@@ -65,6 +72,8 @@ C_th * dT/dt = Q_dot - hA * (T - T_ambient)
 
 The temperature response is integrated with an explicit Euler method.
 
+---
+
 ## Repository Structure
 
 ```text
@@ -83,6 +92,8 @@ outputs/                          Generated CSV outputs
 docs/                             Portfolio notes
 ```
 
+---
+
 ## How to Run
 
 Install dependencies:
@@ -97,13 +108,13 @@ Run the baseline simulation:
 python3 src/main.py
 ```
 
-Run mitigation scenario comparison:
+Run the mitigation scenario comparison:
 
 ```bash
 python3 src/mitigation_study.py
 ```
 
-Run GA optimization:
+Run the genetic algorithm optimization:
 
 ```bash
 python3 src/optimization_ga.py
@@ -114,6 +125,8 @@ If Matplotlib reports a config/cache warning, run with:
 ```bash
 MPLCONFIGDIR=.matplotlib python3 src/optimization_ga.py
 ```
+
+---
 
 ## Baseline Result
 
@@ -133,6 +146,8 @@ Baseline figures:
 ![Speed profile](figures/speed_profile.png)
 
 ![Bearing temperature response](figures/temperature_response.png)
+
+---
 
 ## Mitigation Study
 
@@ -156,13 +171,17 @@ Current mitigation results:
 | Lower load | 25.52 | 0.518 | 13.02 |
 | Reduced speed | 25.55 | 0.549 | 13.79 |
 
-The absolute temperature difference is small, so the most readable comparison is the reduction from baseline:
+Because the absolute temperature difference is small, the most readable comparison is the reduction from the baseline case:
 
 ![Mitigation temperature reduction](figures/mitigation_temperature_reduction.png)
 
-## GA Optimization
+---
 
-`optimization_ga.py` performs a catalog-based genetic optimization. The design variables are:
+## Genetic Algorithm Optimization
+
+`optimization_ga.py` performs a catalog-based genetic optimization.
+
+Design variables:
 
 | Variable | Type |
 |---|---|
@@ -173,13 +192,13 @@ The absolute temperature difference is small, so the most readable comparison is
 | Cooling airflow | Continuous |
 | Cycle gap | Continuous |
 
-The objective function is:
+Objective function:
 
 ```text
 objective = normalized_temperature_rise + 0.08 * design_cost + constraint_penalty
 ```
 
-This means the GA searches for a design that:
+The GA searches for a design that:
 
 - reduces bearing temperature rise
 - avoids excessive design or operating cost
@@ -220,6 +239,8 @@ Optimized repeated-cycle temperature profile:
 
 ![GA best temperature profile](figures/ga_best_temperature_profile.png)
 
+---
+
 ## Output Files
 
 ```text
@@ -229,6 +250,8 @@ outputs/ga_final_population.csv
 ```
 
 `ga_final_population.csv` is useful for comparing not only the best design, but also other near-optimal candidates.
+
+---
 
 ## Assumptions
 
@@ -240,6 +263,8 @@ outputs/ga_final_population.csv
 - Bearing, lubricant, and wheel material catalogs use fictional values.
 - Cooling airflow is modeled with a simplified heat-dissipation multiplier.
 - The GA objective weights are engineering assumptions, not validated design criteria.
+
+---
 
 ## Limitations
 
@@ -263,6 +288,8 @@ problem definition
 → visualization and reporting
 ```
 
+---
+
 ## Technologies
 
 - Python
@@ -271,9 +298,11 @@ problem definition
 - CSV output
 - Genetic algorithm implemented from scratch
 
+---
+
 ## References
 
-- Schaeffler — Friction and increases in temperature  
+- Schaeffler, "Friction and increases in temperature"  
   https://medias.schaeffler.us/en/knowledge-center/rolling-bearings/friction-and-increases-in-temperature
 - NumPy Documentation  
   https://numpy.org/doc/
