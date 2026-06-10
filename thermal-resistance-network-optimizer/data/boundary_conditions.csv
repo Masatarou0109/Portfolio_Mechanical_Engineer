@@ -1,0 +1,3 @@
+node_id,temperature_c,description
+ambient,25,Ambient air temperature
+cooling_air,25,Cooling air inlet temperature

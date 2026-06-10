@@ -1,0 +1,7 @@
+node_id,description,temp_limit_c
+bearing_inner,Bearing inner race / heat source,95
+bearing_outer,Bearing outer race,90
+shaft,Shaft conduction path,85
+housing,Bearing housing,75
+cooling_air,Forced cooling air reference,40
+ambient,Ambient reference,40

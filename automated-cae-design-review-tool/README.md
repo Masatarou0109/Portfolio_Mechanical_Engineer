@@ -1,8 +1,8 @@
-# Nastran CAE Design Review Automation Tool
+# Nastran Thermal Design Review Automation Tool
 
-Automated post-processing and design judgement reporting for Nastran analysis results.
+Automated thermal post-processing and design judgement reporting for Nastran analysis results.
 
-This Python tool imports Nastran analysis results, converts them into engineering review metrics, and automatically generates comparison tables, design judgements, reports, and plots.
+This Python tool imports Nastran-style thermal analysis results, converts them into temperature review metrics, and automatically generates comparison tables, design judgements, reports, and plots.
 
 [![Maximum temperature comparison by case](docs/assets/case_comparison_temperature.png)](docs/assets/case_comparison_temperature.png)
 
@@ -12,9 +12,9 @@ Click the figures in this README to open them at full resolution.
 
 ## Overview
 
-CAE tools are excellent at displaying contour plots, but engineering review work often still requires manual post-processing: multi-case comparison, exceeded-area ratio, improvement rate, safety factor checks, OK/Warning/NG judgement, and report creation.
+CAE tools are excellent at displaying contour plots, but thermal design review work often still requires manual post-processing: multi-case temperature comparison, hot-spot screening, exceeded-area ratio, improvement rate, OK/Warning/NG judgement, and report creation.
 
-This tool is designed to convert Nastran results into decision-ready engineering review outputs, not only to visualize analysis results.
+This tool is designed to convert Nastran thermal results into decision-ready engineering review outputs, not only to visualize temperature contours.
 
 ---
 
@@ -22,10 +22,11 @@ This tool is designed to convert Nastran results into decision-ready engineering
 
 - Imports shell mesh geometry from Nastran BDF files.
 - Supports `GRID`, `CTRIA3`, and `CQUAD4` entries.
-- Imports displacement, temperature, von Mises stress, and heat flux from F06/PCH-style text results.
+- Imports temperature and heat flux from F06/PCH-style text results.
+- Can also import displacement and von Mises stress as optional supporting checks.
 - Calculates element centroids and shell element areas.
-- Summarizes maximum temperature, maximum stress, maximum displacement, and area-weighted averages by design case.
-- Calculates exceeded-area ratios against engineering limits.
+- Summarizes maximum temperature, area-weighted temperature, heat flow, and hot-area ratios by design case.
+- Calculates temperature exceeded-area ratios against engineering limits.
 - Calculates improvement rates from a baseline design case.
 - Classifies each case as `OK`, `Warning`, or `NG`.
 - Generates CSV, Excel, Markdown, and PNG outputs automatically.
@@ -34,7 +35,7 @@ This tool is designed to convert Nastran results into decision-ready engineering
 
 ## Result Examples
 
-The most important outputs are the case comparison plots. They make it easy to see which design case improves thermal or structural performance.
+The most important outputs are the thermal case comparison plots. They make it easy to see which design case improves temperature performance.
 
 ### Maximum Temperature by Case
 
@@ -42,11 +43,11 @@ The most important outputs are the case comparison plots. They make it easy to s
 
 This chart compares the maximum temperature of each analysis case. Lower values indicate better thermal performance.
 
-### Maximum von Mises Stress by Case
+### Supporting Stress Check
 
 [![Maximum stress comparison by case](docs/assets/case_comparison_stress.png)](docs/assets/case_comparison_stress.png)
 
-This chart compares the maximum von Mises stress of each design case. It helps identify cases that may approach or exceed the allowable stress limit.
+This chart is included as a supporting structural check. The main focus of this tool is thermal review, but stress data can be imported when it is available in the same result workflow.
 
 Temperature map images are also generated in `outputs/`, but they are mainly useful when the model has enough elements to show a spatial distribution. The small Nastran demo model has only a few shell elements, so the case comparison plots are easier to read in the README.
 
@@ -59,7 +60,7 @@ Nastran BDF + F06/PCH results
         ↓
 Geometry and result import
         ↓
-Derived engineering metrics
+Derived thermal review metrics
         ↓
 Design criteria judgement
         ↓

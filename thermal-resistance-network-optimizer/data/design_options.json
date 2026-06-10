@@ -1,0 +1,66 @@
+[
+  {
+    "option_id": "baseline",
+    "description": "Baseline thermal path",
+    "cost_index": 0.0,
+    "link_resistance_multipliers": {},
+    "heat_load_multipliers": {}
+  },
+  {
+    "option_id": "housing_fins",
+    "description": "Add cooling fins to the bearing housing",
+    "cost_index": 1.2,
+    "link_resistance_multipliers": {
+      "L5": 0.62
+    },
+    "heat_load_multipliers": {}
+  },
+  {
+    "option_id": "forced_airflow",
+    "description": "Increase airflow around the housing",
+    "cost_index": 1.8,
+    "link_resistance_multipliers": {
+      "L6": 0.45
+    },
+    "heat_load_multipliers": {}
+  },
+  {
+    "option_id": "low_friction_bearing",
+    "description": "Use a lower-friction bearing and lubricant package",
+    "cost_index": 1.5,
+    "link_resistance_multipliers": {},
+    "heat_load_multipliers": {
+      "bearing_inner": 0.74
+    }
+  },
+  {
+    "option_id": "thermal_contact_upgrade",
+    "description": "Improve bearing-to-housing contact conductance",
+    "cost_index": 0.9,
+    "link_resistance_multipliers": {
+      "L2": 0.55
+    },
+    "heat_load_multipliers": {}
+  },
+  {
+    "option_id": "combined_cooling_package",
+    "description": "Cooling fins plus forced airflow",
+    "cost_index": 2.7,
+    "link_resistance_multipliers": {
+      "L5": 0.62,
+      "L6": 0.45
+    },
+    "heat_load_multipliers": {}
+  },
+  {
+    "option_id": "low_heat_high_cooling",
+    "description": "Low-friction bearing plus forced airflow",
+    "cost_index": 3.0,
+    "link_resistance_multipliers": {
+      "L6": 0.45
+    },
+    "heat_load_multipliers": {
+      "bearing_inner": 0.74
+    }
+  }
+]

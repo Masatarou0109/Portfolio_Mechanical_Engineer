@@ -1,0 +1,7 @@
+link_id,from_node,to_node,resistance_k_per_w,description
+L1,bearing_inner,bearing_outer,0.18,Inner-to-outer bearing thermal path
+L2,bearing_outer,housing,0.12,Outer race to housing contact path
+L3,bearing_inner,shaft,0.25,Inner race to shaft conduction path
+L4,shaft,housing,0.40,Shaft to housing secondary path
+L5,housing,ambient,0.55,Natural convection from housing to ambient
+L6,housing,cooling_air,0.35,Forced airflow path around housing
